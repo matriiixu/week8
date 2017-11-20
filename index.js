@@ -10,6 +10,7 @@ $(document).on('pageinit', function() {
 });
 
 
+
 //Call this function when you want to get the current position
 function getPosition() {
 	
@@ -26,15 +27,18 @@ function successPosition(position) {
 	
 	//You can find out more details about what the position obejct contains here:
 	// http://www.w3schools.com/html/html5_geolocation.asp
+    
 	
 
 	//lets get some stuff out of the position object
-	var time = position.timestamp;
+	//var time = position.timestamp;
+	
+    var unixtime = new Date(position.timestamp);
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
 	
 	//OK. Now we want to update the display with the correct values
-	$('#time').val("Recieved data at " + time);
+	$('#time').val("Recieved data at " + unixtime);
 	$('#longtext').val("Your longitude is: " + longitude);
 	$('#lattext').val("Your latitude is: " + latitude);
 	
